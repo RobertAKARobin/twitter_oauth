@@ -4,7 +4,7 @@ var request   = require("request");
 var qstring   = require("qs");
 var twit      = {};
 
-twit.getRedirect = function(req, res, callback){
+twit.signInUser = function(req, res, callback){
   var url = "https://api.twitter.com/oauth/request_token";
   var oauth = {
     callback:         process.env.t_callback_url,
@@ -20,7 +20,7 @@ twit.getRedirect = function(req, res, callback){
   });
 }
 
-twit.whenAuthenticated = function(req, res, callback){
+twit.whenSignedIn = function(req, res, callback){
   var auth_data = qstring.parse(req.body);
   var url = "https://api.twitter.com/oauth/access_token";
   var oauth = {
